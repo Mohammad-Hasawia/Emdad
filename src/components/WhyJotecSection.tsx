@@ -43,7 +43,7 @@ export function WhyJotecSection() {
             {t('whyEmdad.title')}
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <div 
                 key={index}
@@ -51,7 +51,7 @@ export function WhyJotecSection() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start space-x-4 rtl:space-x-reverse">
-                  <div className="w-3 h-3 bg-emdad-gold rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 md:w-3 md:h-3 bg-emdad-gold rounded-full mt-2 flex-shrink-0"></div>
                   <div className="flex-1">
                     <h3 
                       className={`text-xl font-semibold text-white mb-3 ${

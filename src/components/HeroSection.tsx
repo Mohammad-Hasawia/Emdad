@@ -37,7 +37,7 @@ export function HeroSection() {
 
         <Button
           onClick={scrollToAbout}
-          className="relative bg-emdad-gold hover:bg-yellow-500 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg transition duration-300 hover:scale-105
+          className="relative bg-emdad-gold hover:bg-yellow-500 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-xl shadow-lg transition duration-300 hover:scale-105
           before:absolute before:inset-0 before:rounded-xl before:border-2 before:border-yellow-400/50 before:opacity-0 hover:before:opacity-100 before:animate-ping"
         >
           {t('hero.cta')}

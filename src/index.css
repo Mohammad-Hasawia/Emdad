@@ -77,6 +77,16 @@
 [dir="rtl"] .rtl-text-left { text-align: left; }
 [dir="rtl"] .rtl-text-center { text-align: center; }
 
+/* Mobile Navigation Improvements */
+@media (max-width: 1024px) {
+  .mobile-nav-dropdown {
+    background-color: rgba(31, 59, 115, 0.98);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(184, 144, 32, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+}
+
 /* Timeline specific RTL support */
 [dir="rtl"] .timeline-item-left {
   text-align: left;
@@ -104,10 +114,27 @@
 
 /* Responsive timeline adjustments */
 @media (max-width: 768px) {
+  /* Mobile timeline - single column layout */
   .timeline-item-left,
   .timeline-item-right {
-    text-align: center !important;
+    text-align: left !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+  }
+  
+  /* Mobile timeline container */
+  .mobile-timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  
+  .mobile-timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #B89020, #D4AF37);
   }
 }

@@ -28,7 +28,7 @@ export function WhatWeRepresentSection() {
             {t('represent.title')}
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {items.map((item, index) => {
               const IconComponent = item.icon;
               return (
@@ -37,7 +37,7 @@ export function WhatWeRepresentSection() {
                   className="text-center animate-fade-in-up"
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <div className="w-20 h-20 bg-emdad-gold rounded-full flex items-center justify-center mx-auto mb-6 transform hover:scale-110 transition-transform duration-200">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-emdad-gold rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 transform hover:scale-110 transition-transform duration-200">
                     <IconComponent className="text-white" size={32} />
                   </div>
                   

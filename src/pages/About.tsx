@@ -162,7 +162,7 @@ export default function About() {
             
             {/* Timeline */}
             <div className="relative mb-16 hidden md:block">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-emdad-gold"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-emdad-gold" style={{ height: 'calc(100% - 2rem)' }}></div>
               
               {timelineEvents.map((event, index) => (
                 <div key={index} className={`flex items-center mb-8 ${index % 2 === 0 ? 'justify-start' : 'justify-end'} animate-fade-in-up`} style={{ animationDelay: `${index * 0.2}s` }}>
@@ -180,15 +180,21 @@ export default function About() {
 
             {/* Mobile Timeline */}
             <div className="md:hidden mb-16">
-              {timelineEvents.map((event, index) => (
-                <div key={index} className="mb-8 animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div className="relative">
+                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-emdad-gold"></div>
+                {timelineEvents.map((event, index) => (
+                  <div key={index} className="relative flex items-start mb-8 animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
+                    <div className="absolute left-2 w-4 h-4 bg-emdad-gold rounded-full transform -translate-x-1/2 mt-6"></div>
+                    <div className="ml-12 w-full">
                   <div className="bg-white p-6 rounded-lg shadow-lg">
-                    <div className="text-emdad-gold font-bold text-lg mb-2 text-center arabic-balanced-text">{event.year}</div>
-                    <h3 className="text-emdad-navy font-semibold mb-2 text-center arabic-text">{event.title}</h3>
-                    <p className="text-gray-600 arabic-text leading-relaxed text-center">{event.description}</p>
+                        <div className="text-emdad-gold font-bold text-lg mb-2 arabic-balanced-text">{event.year}</div>
+                        <h3 className="text-emdad-navy font-semibold mb-2 arabic-text">{event.title}</h3>
+                        <p className="text-gray-600 arabic-text leading-relaxed">{event.description}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             {/* Partnership List */}

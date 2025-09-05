@@ -114,7 +114,7 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {/* About Dropdown */}
-            <div className="relative group">
+            <div className={`relative group ${language === 'ar' ? 'ml-8' : ''}`}>
               <button
                 onClick={() => handleNavigation("about")}
                 className={`relative text-white flex items-center transition-colors duration-200
@@ -140,7 +140,7 @@ export function Header() {
               </button>
 
               {/* Dropdown Menu */}
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className={`absolute top-full ${language === 'ar' ? 'right-0' : 'left-0'} mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50`}>
                 <div className="py-2">
                   {aboutDropdownItems.map((item) => (
                     <button
@@ -161,7 +161,7 @@ export function Header() {
             </div>
 
             {/* Other Navigation Items */}
-            {navItems.slice(1).map((item) => (
+            {navItems.slice(1).map((item, index) => (
               <button
                 key={item.key}
                 onClick={() => handleNavigation(item.href)}
@@ -169,7 +169,7 @@ export function Header() {
                   hover:text-emdad-gold after:content-[''] after:absolute after:w-0 after:h-[2px]
                   after:bg-gradient-to-r after:from-yellow-400 after:to-yellow-600
                   after:-bottom-1 hover:after:w-full after:transition-all after:duration-300
-                  ${language === "ar" ? "after:right-0" : "after:left-0"}`}
+                  ${language === "ar" ? "after:right-0 ml-8" : "after:left-0"}`}
               >
                 {t(item.key)}
               </button>
@@ -178,7 +178,7 @@ export function Header() {
 
           {/* Language toggle & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <button
+            <button 
               onClick={toggleLanguage}
               className="text-white hover:text-emdad-gold transition-colors duration-200 font-medium"
             >
@@ -195,8 +195,8 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="lg:hidden mt-4 pb-4 border-t border-gray-700 animate-slideDown">
-            <div className="flex flex-col space-y-4 pt-4">
+          <nav className="lg:hidden mt-4 pb-4 border-t border-gray-700 animate-slideDown bg-emdad-navy rounded-b-lg shadow-lg">
+            <div className="flex flex-col space-y-4 pt-4 px-4">
               <button
                 onClick={() => handleNavigation("about")}
                 className="text-white hover:text-emdad-gold transition-colors duration-200 text-left"
@@ -204,7 +204,7 @@ export function Header() {
                 {t("nav.about")}
               </button>
               <div className="pl-4 space-y-2">
-                {aboutDropdownItems.map((item) => (
+                {aboutDropdownItems.map((item, index) => (
                   <button
                     key={item.key}
                     onClick={() => handleNavigation(item.href)}
@@ -214,7 +214,7 @@ export function Header() {
                   </button>
                 ))}
               </div>
-              {navItems.slice(1).map((item) => (
+              {navItems.slice(1).map((item, index) => (
                 <button
                   key={item.key}
                   onClick={() => handleNavigation(item.href)}
